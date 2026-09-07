@@ -1,41 +1,35 @@
 ---
 import PlotFigure from "../components/PlotFigure.astro";
 import Layout from "../layouts/Layout.astro";
+import SiteNavigation from "../components/SiteNavigation.astro";
 import * as Plot from "@observablehq/plot";
 import penguins from "../assets/penguins.json";
 
 const scatterOptions = {
   title: "Manchots : Longueur vs Profondeur du bec",
-
-  caption: "Nuage de points.",
-
   ariaLabel: "Nuage de points comparant la longueur et la profondeur du bec par espèce",
-
+  marginBottom: 40,
   grid: true,
-
   color: {
     legend: true,
-    type: "categorical"
+    type: "categorical",
+    domain: ["Adelie", "Chinstrap", "Gentoo"],
+    range: ["#377eb8", "#ffd92f", "#e41a1c"],
   },
-
   marks: [
     Plot.dot(penguins, {
       x: "culmen_length_mm",
       y: "culmen_depth_mm",
-      stroke: "species"
-    })
-  ]
+      stroke: "species",
+    }),
+  ],
 };
 ---
 
 <Layout>
-
   <div class="min-h-screen bg-slate-50 text-slate-800">
-
-    <div class="mx-auto max-w-6xl px-5 py-8 sm:px-8 lg:px-10 lg:py-12">
-
+    <div class="mx-auto max-w-6xl px-5 py-8">
       <header class="mb-10 border-b border-slate-300 pb-7">
-
         <p class="mb-2 text-sm font-medium text-slate-500">
           TP Observable Plot
         </p>
@@ -47,31 +41,25 @@ const scatterOptions = {
         <p class="mt-3 text-base text-slate-600">
           Étude de la longueur et de la profondeur du bec selon l'espèce.
         </p>
-
       </header>
 
+      <SiteNavigation />
+
       <section class="border border-slate-200 bg-white">
-
         <div class="border-b border-slate-200 px-5 py-4 sm:px-7">
-
           <h2 class="text-xl font-semibold text-slate-950">
-            Scatterplot
+            Nuage de points
           </h2>
 
           <p class="mt-1 text-sm text-slate-500">
             Longueur et profondeur du bec par espèce.
           </p>
-
         </div>
 
         <div class="overflow-x-auto px-3 py-5 sm:px-7">
           <PlotFigure options={scatterOptions} />
         </div>
-
       </section>
-
     </div>
-
   </div>
-
 </Layout>
