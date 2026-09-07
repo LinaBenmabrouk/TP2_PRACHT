@@ -1,7 +1,7 @@
-- URL site WEB :
+- URL site WEB : 
 - URL Notebook Observable :
-- Nom :
-- Prénom :
+- Nom : BEN MABROUK
+- Prénom : Lina
 - Nom binome :
 - Prénom binome :
 
