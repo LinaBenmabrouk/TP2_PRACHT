@@ -1,13 +1,24 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import GraphicSpecies from "../../components/GraphicSpecies.astro";
 ---
 
-<nav>
-  <a href="/species/Adelie">Adelie</a>
-  <a href="/species/Gentoo">Gentoo</a>
-  <a href="/species/Chinstrap">Chinstrap</a>
-</nav>
+<Layout>
+  <div class="min-h-screen bg-slate-50 text-slate-800">
+    <main class="mx-auto max-w-6xl px-5 py-8">
 
-<h1>Penguins Chinstrap</h1>
+      <h1 class="mb-8 text-3xl font-semibold">Penguins Chinstrap</h1>
 
-<GraphicSpecies species="Chinstrap" />
+      <nav class="mb-8 flex gap-4">
+        <a href="/species/Adelie">Adelie</a>
+        <a href="/species/Gentoo">Gentoo</a>
+        <a href="/species/Chinstrap">Chinstrap</a>
+      </nav>
+
+      <section class="border border-slate-200 bg-white p-5">
+        <GraphicSpecies species="Chinstrap" />
+      </section>
+
+    </main>
+  </div>
+</Layout>
